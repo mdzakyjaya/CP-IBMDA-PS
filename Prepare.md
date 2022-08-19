@@ -276,3 +276,52 @@ Save into an excel spreadsheet
 ```
 wb.save('job-postings.xlsx')
 ```
+
+# Exploring Main Data : The Stack Overflow Survey 2019 Data
+Import the required libraries.
+```
+import pandas as pd
+```
+
+The dataset is available on the IBM Cloud at the below url.
+```
+dataset_url = "https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DA0321EN-SkillsNetwork/LargeData/m1_survey_data.csv"
+```
+
+Load the data available at dataset_url into a dataframe.
+```
+data = pd.read_csv(dataset_url)
+```
+
+explore the dataset: display top 5 rows of the data
+```
+data.head(5)
+```
+
+getting to know the number of records
+```
+data.shape[0]
+```
+
+getting to know the number of variables/attributes
+```
+data.shape[1]
+```
+
+Identify the datatype of all columns.
+```
+data.info(verbose=True)
+```
+
+acquainted with the data using descriptive analysis
+```
+data['Age'].mean()
+```
+
+print unique country and number of respondent in each country
+```
+with pd.option_context('display.max_rows', None, 'display.max_columns', None):
+    print(data['Country'].value_counts())
+```
+
+now we have explored the data set. getting to know the data well is important to do further steps.
